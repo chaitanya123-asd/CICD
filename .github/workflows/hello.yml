@@ -1,0 +1,20 @@
+# Workflow name
+
+name: Hello
+
+on:
+  push:
+    branches:
+      - main
+
+    paths:
+      - '**.html'
+
+# Jobs
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+  steps:
+    - Say Hello to user
+    - run: echo "Hello $User"

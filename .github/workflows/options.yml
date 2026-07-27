@@ -1,0 +1,38 @@
+---
+name: CICD
+on:
+  workflow_dispatch:
+    inputs:
+      environmnets:
+        type: choice
+        options:
+          - Dev
+          - Prod
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: echo "code clone from gitHub"
+  build:
+    needs:
+      - code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Buid docker container
+        run: echo "Docker container build"
+  test:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: test the container
+        run: echo "testing container"
+  deploy:
+    if: inputs.environmnets == 'Dev'
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying app
+        run: echo "Docker container deploy on app"

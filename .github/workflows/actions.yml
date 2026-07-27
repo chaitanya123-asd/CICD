@@ -1,0 +1,22 @@
+---
+name: portfolio
+on:
+  push:
+    branches:
+      - main
+permissions: pages:write id-token:write
+jobs:
+  deploy:
+    runs on: ununtu_latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.url }}
+    steps:
+      - name: Checkout Code
+        uses: actions/Checkout@v4
+
+      - name: Setup Githup pages
+        uses: actions/configure-Githup-pages@v4
+        
+      - name: Upload static files
+        uses: actions/upload-pages-artifacts@v4

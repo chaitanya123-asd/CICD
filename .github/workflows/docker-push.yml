@@ -25,7 +25,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/github-actions-app:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/github-actions-app:${{github.sha}}
+            chaitanya13dock/github-actions-app:latest
+            chaitanya13dock/github-actions-app:${{ github.sha }}
 
 

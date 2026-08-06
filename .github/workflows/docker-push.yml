@@ -22,7 +22,8 @@ jobs:
       - name: build and push action
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ./Matrix
+          file: ./Matrix/Dockerfile
           push: true
           tags: |
             chaitanya13dock/github-actions-app:latest
